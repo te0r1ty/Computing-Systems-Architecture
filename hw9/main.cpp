@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <random>
 
+pthread_mutex_t mutex;
 const int threadNumber = 20;
 
 void *Number(void *param) {    //вычисление суммы квадратов в потоке
@@ -14,15 +15,18 @@ void *Number(void *param) {    //вычисление суммы квадрат�
     int n = timeRand(gen);
     Sleep(n * 1000);
 
+    pthread_mutex_lock(&mutex);
     int* num = (int*)param;
     std::cout << "Generated #" << *num << " number\n";
-    //comm
+    pthread_mutex_unlock(&mutex);
+
     *num = numRand(gen);
 
     return nullptr;
 }
 
 int main() {
+    pthread_mutex_init(&mutex, nullptr);
     srand((unsigned)time(nullptr));
     int nums[threadNumber];
     for (int i = 0; i < threadNumber; ++i) {
