@@ -16,7 +16,7 @@ void *Number(void *param) {    //вычисление суммы квадрат�
 
     int* num = (int*)param;
     std::cout << "Generated #" << *num << " number\n";
-
+    //comm
     *num = numRand(gen);
 
     return nullptr;
