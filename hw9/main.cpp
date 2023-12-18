@@ -4,6 +4,8 @@
 #include <random>
 #include <vector>
 
+// Надо добавить комментов...
+
 pthread_mutex_t mutex;
 pthread_mutex_t sumMutex;
 pthread_barrier_t controlBarr;
