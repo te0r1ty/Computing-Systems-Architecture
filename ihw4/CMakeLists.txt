@@ -3,4 +3,4 @@ project(ihw4)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ihw4 main.cpp)
+add_executable(ihw4 main.cpp pin.h thread_funcs.h)
