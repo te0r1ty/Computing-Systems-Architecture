@@ -20,15 +20,17 @@ int usable;
 int pins;
 
 int main() {
-    while (!(1 <= pins && pins <= 100)) {
+	// Enter number of pins
+    while (!(2 <= pins && pins <= 100)) {
         std::cout << "Enter the number of pins to check from 2 to 100: ";
         std::cin >> pins;
-        if (!(1 <= pins && pins <= 100)) {
+        if (!(2 <= pins && pins <= 100)) {
             std::cout << "This amount of pins can't be checked!\n";
         }
     }
     Sleep(500);
 
+	// Create pins
     for (int i = 0; i < pins; ++i) {
         std::random_device rd;
         std::mt19937 gen(rd());
@@ -39,6 +41,7 @@ int main() {
     Sleep(500);
 
 
+	// Enter number of workers
     while (!(1 <= straighteners && straighteners <= 3)) {
         std::cout << "Enter the number of straightness controllers: ";
         std::cin >> straighteners;
@@ -61,7 +64,7 @@ int main() {
         }
     }
 
-
+	// Main thread
     pthread_t factory;
     pthread_create(&factory, nullptr, Factory, nullptr);
     pthread_join(factory, nullptr);

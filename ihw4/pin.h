@@ -1,5 +1,7 @@
+// Sharpness state class
 enum class Sharp : int {Dull = 0, Sharp = 1, VerySharp = 2};
 
+// Implementation of pin class
 class Pin {
 private:
     bool usable;
